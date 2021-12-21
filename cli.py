@@ -41,12 +41,13 @@ def log(text: str):
 
 @log('Приготовили за {}с!')
 def bake(pizza):
-    return f'Приготовили пиццу {pizza}'
+    pass
 
 
 @log('Доставили за {}с!')
 def deliver(pizza):
-    return f'Доставили пиццу {pizza}'
+    pass
+    # return f'Доставили пиццу {pizza}'
 
 
 # bake(pizza.Margarita(size='L'))
