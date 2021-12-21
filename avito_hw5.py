@@ -16,29 +16,33 @@ sys.stdout.write = original_write
 
 
 def timed_output(function: Callable):
-    '''Декоратор, который показывает время вывода на экран'''
+    """Декоратор, который показывает время вывода на экран"""
     change_write = original_write
 
     def wrapper(string_text):
         change_write(f'[{str(datetime.now())[0:-7]}]: ')
-        function(string_text)
+        result = function(string_text)
+        return result
     return wrapper
 
 
-@timed_output
+#@timed_output
 def print_greeting(name):
     print(f'Hello, {name}!')
+    return 42
 
+decorated = timed_output(print_greeting)
+print(decorated('Nikita'))
 
-print_greeting("Nikita")
-
+# result = print_greeting("Nikita")
+# print(type(result))
 
 def redirect_output(filepath):
     """Декоратор, которые записывает все выводы функции print в файл. Файл будет храниться в filepath """
     def wrapper(func):
-        def inner_wrapper():
+        def inner_wrapper(*args, **kwargs):
             sys.stdout = open(filepath, 'w')
-            result = func()
+            result = func(*args, **kwargs)
             return result
         return inner_wrapper
     return wrapper
