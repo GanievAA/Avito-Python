@@ -1,0 +1,9 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.4, pytest-5.2.1, py-1.8.0, pluggy-0.13.0
+rootdir: C:\Users\Abdurakhim\Desktop\Avito Python
+plugins: arraydiff-0.3, doctestplus-0.4.0, openfiles-0.4.0, remotedata-0.3.2
+collected 4 items
+
+avito_hw6_task4.py ....                                                  [100%]
+
+============================== 4 passed in 0.03s ==============================
